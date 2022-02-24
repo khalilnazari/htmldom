@@ -15,9 +15,19 @@
     </header>
 
     <main>
-
+        <h4>Check if code is runing in browser:</h4>
+        <pre>
+            <code class="">
+                // return true if code is running in browser. 
+                const isRunning = typeof window === "object" && typeof document === "object"; 
+            </code>
+        </pre>
     </main>
 
+    <script>
+        const isRunning = typeof window === "object" && typeof document === "object"; 
+        console.log('Code running: '+isRunning)
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
 </body>

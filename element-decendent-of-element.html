@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main>
+        <h5>Using contains method</h5>
+        <pre>
+            <code class="language-js">
+                const codeElement = document.querySelector('code'); 
+                const preElement = document.querySelector('pre'); 
+
+                // result is true or false
+                let isDecendent = preElement.contains(codeElement); 
+            </code>
+        </pre>
+
+        <h5>Go up form the child untill see the parent</h5>
+        <pre>
+            <code class="language-js">
+                // go up from the child untill see the element 
+                isDecendent = ( preElement, codeElement ) => {
+                    let node = codeElement.parentNode; 
+
+                    while(node) {
+                        if(node === parent) {
+                            return true;
+                        }
+
+                        // traverse up to the top
+                        node = node.parentNode; 
+                    }
+
+                    // go up until the root but couldn't find the `parent`
+                    return false;
+                }
+            </code>
+        </pre>
+    </main>
+
+    <script>
+        // using contains element 
+        const preElement = document.querySelector('pre'); 
+        const codeElement = document.querySelector('code'); 
+
+        // result is true or false
+        let isDecendent = preElement.contains(codeElement); 
+
+
+        // go up from the child untill see the element 
+        isDecendent = ( preElement, codeElement ) => {
+            let node = codeElement.parentNode; 
+
+            while(node) {
+                if(node === parent) {
+                    return true;
+                }
+
+                // traverse up to the top
+                node = node.parentNode; 
+            }
+
+            // go up until the root but couldn't find the `parent`
+            return false;
+        }
+
+
+        console.log(isDecendent);
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>

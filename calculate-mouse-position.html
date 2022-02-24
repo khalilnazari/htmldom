@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Calculate mouse position - HTML DOM</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main>
+        <pre>
+            <code class="language-js">
+                // select pre element 
+                const ele = document.querySelector('pre');
+
+                // handler function
+                const handler = (event) => {
+                    // mouse position relative to window.
+                    let windowX = event.clientX; 
+                    let windowY = event.clientY; 
+                    console.log('Mouse position relative to window: ', windowX, windowY); 
+
+                    // target is pre element 
+                    let target = event.target; 
+                    let pre = target.getBoundingClientRect(); 
+
+                    // pre element disance from left and top
+                    let preFromLeft = rect.left; 
+                    let preFromTop = rect.top; 
+
+                    // mouse position relativb to pre element
+                    let preX = windowX - preFromLeft; 
+                    let preY = windowY - preFromTop; 
+
+                    console.log('Mouse position relative to pre element: ', preX , preY)
+                } 
+                
+                // attache mousedown event 
+                ele.addEventListener('mousedown', handler)
+            </code>
+        </pre>
+    </main>
+
+    <script>
+        // select pre element 
+        const ele = document.querySelector('pre');
+
+        // handler function
+        const handler = (event) => {
+            // mouse position relative to window.
+            let windowX = event.clientX; 
+            let windowY = event.clientY; 
+            console.log('Mouse position relative to window: ', windowX, windowY); 
+
+            // target is pre element 
+            let target = event.target; 
+            let pre = target.getBoundingClientRect(); 
+
+            // pre element disance from left and top
+            let preFromLeft = rect.left; 
+            let preFromTop = rect.top; 
+
+            // mouse position relativb to pre element
+            let preX = windowX - preFromLeft; 
+            let preY = windowY - preFromTop; 
+
+            console.log('Mouse position relative to pre element: ', preX , preY)
+        } 
+        
+        // attache mousedown event 
+        ele.addEventListener('mousedown', handler)
+
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>
