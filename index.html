@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h3>HTML DOM Hints</h3>
+    </header>
+    
+    <!-- search  -->
+    <div class="search"><input type="text" id="search_hint" placeholder="Search here..."></div>
+
+    <!-- Links -->
+    <main></main>
+
+    <!-- footer -->
+    <!-- <footer><h4>End</h4></footer> -->
+
+    <script>
+        // link content.
+        const links = [
+            {
+                href: './add-or-remove-class.html', 
+                text: 'How to add and remove class'
+            }, 
+            {
+                href: './append-element.html', 
+                text: 'Append to an element'
+            }
+        ]
+
+        // main element
+        const mainEle = document.querySelector('main'); 
+
+        // append links to main
+        links.forEach(data => {
+            let newLink = document.createElement('a'); 
+            newLink.setAttribute('href', data.href);
+            newLink.setAttribute('class', 'link-item');
+            newLink.textContent = data.text; 
+            mainEle.appendChild(newLink)
+        })
+
+        let lastLink = document.createElement('a'); 
+        lastLink.textContent = "Next topic will come soon ...."; 
+        mainEle.appendChild(lastLink)
+    </script>
+</body>
+</html>

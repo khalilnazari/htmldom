@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+
+    <main>
+        <pre>
+            <code id="para1" class="language-js">document.querySelector('#para1').classList.add('red-text')</code>
+            <code id="para2" class="language-js">document.querySelector('#para2').setAttribute('class','green-text')</code>
+            <code id="para3" class="red-text language-js">document.querySelector('#para2').classList.remove('red-text')</code>
+            <code id="para4" class="red-text language-js">document.querySelector('#para2').classList.toggle('red-text')</code>
+        </pre>
+    </main>
+
+    <script>
+        const para1 = document.querySelector('#para1').classList.add('red-text')
+        const para2 = document.querySelector('#para2').setAttribute('class','green-text')
+        const para3 = document.querySelector('#para3').classList.remove('red-text')
+        const para4 = document.querySelector('#para4'); 
+
+        para4.addEventListener('click', () => {
+            para4.classList.toggle('red-text')
+        })        
+        console.log(para1)
+    </script>
+    <!-- footer -->
+    <!-- <footer><p>&copy; Khalil</p></footer> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+
+</body>
+</html>
