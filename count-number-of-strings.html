@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main>
+        <div class="topic-title">
+            <h4>Count the number of characters in textarea</h4>
+        </div>
+        <div style="margin:2rem;">
+            <textarea name="text" maxlength="200" id="textarea" style="width:100%; padding:1rem;" rows="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, quae.</textarea>
+            <div><h5 style="margin-top:1rem" id="counter"></h5></div>
+        </div>
+        <pre>
+            <code class="language-js">
+                // query elements
+                const textarea = document.querySelector('textarea'); 
+                const counter = document.querySelector('#counter'); 
+                
+                // current length after DOMContentLoaded
+                window.addEventListener('DOMContentLoaded', () => {
+                    const maxLenth = textarea.getAttribute('maxlength'); 
+                    let currentLength = maxLenth - textarea.value.length; 
+                    counter.textContent = currentLength; 
+                })
+
+                // current length after each input.        
+                textarea.addEventListener('input', (e) => {
+                    const target = e.target;
+                    const maxLenth = target.getAttribute('maxlength'); 
+                    let currentLength = maxLenth - target.value.length; 
+                    counter.textContent = currentLength;
+                })
+            </code>
+        </pre>
+    </main>
+
+    <script>
+        // query elements
+        const textarea = document.querySelector('textarea'); 
+        const counter = document.querySelector('#counter'); 
+        
+        // current length after DOMContentLoaded
+        window.addEventListener('DOMContentLoaded', () => {
+            const maxLenth = textarea.getAttribute('maxlength'); 
+            let currentLength = maxLenth - textarea.value.length; 
+            counter.textContent = currentLength; 
+        })
+
+        // current length after each input.        
+        textarea.addEventListener('input', (e) => {
+            const target = e.target;
+            const maxLenth = target.getAttribute('maxlength'); 
+            let currentLength = maxLenth - target.value.length; 
+            counter.textContent = currentLength;
+        })
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main>
+        <div class="topic-title">
+            <h4>Count the number of characters in textarea</h4>
+        </div>
+        <pre>
+            <code>
+                
+                const el = document.querySelector('elemen');
+                
+                // handler
+                const handler =  (e) => {
+                    /// code
+                }
+                // using once option
+                el.addEventListener('click', handler, {once: true})
+
+                // Using self remove
+                const slefHandler = (e) => {
+                    // code 
+
+                    e.target.removeEventListener(e.type, handler)
+                }
+                
+                el.addEventListener('click', handler); 
+            </code>
+        </pre>
+
+    </main>
+
+    <script>
+        const el = document.querySelector('elemen');
+        
+        // handler
+        const handler =  (e) => {
+            /// code
+        }
+        // using once option
+        el.addEventListener('click', handler, {once: true})
+
+        // Using self remove
+        const slefHandler = (e) => {
+            // code 
+
+            e.target.removeEventListener(e.type, handler)
+        }
+        
+        el.addEventListener('click', handler); 
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>
