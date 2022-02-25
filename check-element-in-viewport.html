@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body style="position: relative;">
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main">
+        <pre>
+            <code class="language-js">
+                // checking if an element passed to it is in viewport
+                const isInViewport = (el) => {
+                    // get the element bounding 
+                    let rect = el.getBoundingClientRect(); 
+                    
+                    // distance from top: rect.top 
+                    // distance from left: rect.left 
+                    // distance from bottom: rect.bottom 
+                    // disance from right: rect.right
+                    // inner width of window : window.innerWidth
+                    // inner height of window : window.innerHeight
+                    // root Elemnt / html element height: document.documentElement.clientHeight
+                    // root Elemnt / html element width: document.documentElement.clientWidth
+                    
+                    return (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && 
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );                 
+                }
+        
+                const main = document.querySelector('main');
+            </code>
+        </pre>
+    </main>
+
+    <script>
+        const isInViewport = (el) => {
+            // get the element bounding 
+            let rect = el.getBoundingClientRect(); 
+                    
+            // distance from top: rect.top 
+            // distance from left: rect.left 
+            // distance from bottom: rect.bottom 
+            // disance from right: rect.right
+            // inner width of window : window.innerWidth
+            // inner height of window : window.innerHeight
+            // root Elemnt / html element height: document.documentElement.clientHeight
+            // root Elemnt / html element width: document.documentElement.clientWidth
+            
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && 
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            ); 
+                
+        }
+
+        const main = document.querySelector('main');
+        console.log("main elment is in viewport: ", isInViewport(main))
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>

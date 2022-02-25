@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <style>
+        form {
+            margin: 2rem 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <!-- header -->
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <!-- main contetn -->
+    <main>
+        <form id="form_data" onsubmit=formSubmit(this) >
+            <input type="first-name" value="Khalil Ahmad">
+            <input type="last-name" value="Nazari">
+            <input type="email" value="khalil@gmail.com">
+            <input type="password" value="1234567800">
+            <input type="submit" value="Submit">
+        </form> 
+
+        <pre>
+            <code class="language-js">
+                const form = document.querySelector("#form_data");
+                // console.log(form); 
+
+                // deep clone  
+                const cloneDeep = form.cloneNode(true);
+
+                // clone only the node with it's attributes
+                const clone = form.cloneNode(false);
+            </code>
+        </pre>
+    </main>
+
+
+    <script>
+        const form = document.querySelector("#form_data");
+        // console.log(form); 
+
+        // deep clone  
+        const cloneDeep = form.cloneNode(true);
+
+        // clone only the node with it's attributes
+        const clone = form.cloneNode(false);
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>
