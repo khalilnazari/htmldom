@@ -18,3 +18,30 @@ const matches = (ele, selector) => {
 }; 
 
 
+
+// Check if an element is focused 
+const isFucused = element === document.activeElement; // return boolean
+
+
+
+//Get CSS styles of an element
+const style = windwo.getComputeStyle(ele); 
+let bgColor = style.backgroundColor; // get backgournd-color value; 
+//Or using getPropertyValue
+bgColor = style.getPropertyValue('background-color')
+bgColor = style.getPropertyValue('backgroundColor')
+
+
+
+// Get the document title 
+const getTitle = document.title;
+// set tile 
+document.title = "new title"; 
+
+
+
+// Get, set and remove attributes
+let id = ele.getAttribute('id'); 
+ele.setAttribute('id', 'element=id'); 
+ele.removeAttribute('id'); 
+

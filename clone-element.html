@@ -31,11 +31,11 @@
 
     <!-- main contetn -->
     <main>
-        <form id="form_data" onsubmit=formSubmit(this) >
-            <input type="first-name" value="Khalil Ahmad">
-            <input type="last-name" value="Nazari">
-            <input type="email" value="khalil@gmail.com">
-            <input type="password" value="1234567800">
+        <form id="form_data" method="post">
+            <input type="text" name="first-name" value="Khalil Ahmad">
+            <input type="text" name="last-name" value="Nazari">
+            <input type="email" name="email" value="khalil@gmail.com">
+            <input type="password" name="password" value="1234567800">
             <input type="submit" value="Submit">
         </form> 
 
@@ -62,8 +62,35 @@
         const cloneDeep = form.cloneNode(true);
 
         // clone only the node with it's attributes
-        const clone = form.cloneNode(false);
+        const clone = form.cloneNode(true);
+        console.log(serializeArray(form))
 
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const target = e.target; 
+
+            console.log(serializeArray(target));
+            
+        })
+
+
+        function serializeArray (form) {
+            // Create a new FormData object
+            const formData = new FormData(form);
+
+            // Create an array to hold the name/value pairs
+            const pairs = [];
+
+            // Add each name/value pair to the array
+            for (const [name, value] of formData) {
+                pairs.push({ name, value });
+            }
+
+            // Return the array
+            return pairs;
+        }
+        
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM - hints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main>
+        <div class="topic-title">
+            <h4>Determine height and width of an element.</h4>
+        </div>
+
+        <div class="test" style="border:2px solid black; padding:10px; margin:5px; background-color:orange">
+            div element with 2px border, 5px marging, 10px padding
+        </div>
+
+        <pre>
+            <code class="language-js">
+                const el = document.querySelector('.test'); 
+                const style = window.getComputedStyle(el); 
+
+                // size including padding 
+                const clientWidth = el.clientWidth; 
+                const clientHeight = el.clientHeight; 
+
+                // size including border and padding 
+                const offsetWidth = el.offsetWidth; 
+                const offsetHeight = el.offsetHeight; 
+
+
+                // size excluding padding and border 
+                let width = clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight); 
+                let height = clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom); 
+
+
+                // size with padding, border and margin
+                width = offsetWidth + parseFloat(style.marginRight) + parseFloat(style.marginLeft); 
+                height = offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+            </code>
+        </pre>
+
+    </main>
+
+    <script>
+        const el = document.querySelector('.test'); 
+        const style = window.getComputedStyle(el); 
+
+        // size including padding 
+        const clientWidth = el.clientWidth; 
+        const clientHeight = el.clientHeight; 
+
+        // size including border and padding 
+        const offsetWidth = el.offsetWidth; 
+        const offsetHeight = el.offsetHeight; 
+
+
+        // size excluding padding and border 
+        let width = clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight); 
+        let height = clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom); 
+
+
+        // size with padding, border and margin
+        width = offsetWidth + parseFloat(style.marginRight) + parseFloat(style.marginLeft); 
+        height = offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);  
+        console.log(width, height); 
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>
