@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .file-detail p {
+            margin: .5rem 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>HTML DOM - hints</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html">Back</a>
+        <h3>HTML DOM Hints</h3>
+    </header>
+
+    <main>
+        <div class="topic-title">
+            <h4>Count the number of characters in textarea</h4>
+        </div>
+
+        <div>
+            <input type="file" name="myFile" id="myFile">
+
+            <div class="file-detail" style="margin-top:1rem">
+                <h3>File Details</h3>
+                <p><b>Number of files uploaded: </b><span id="number_of_files"></span></p>
+                <p><b>File Name: </b><span id="show_file_name"></span></p>
+                <p><b>File size: </b><span id="show_file_size"></span></p>
+                <p><b>File Type: </b><span id="show_file_type"></span></p>
+                <p><b>Last Modefied Date: </b><span id="show_last_modified"></span></p>
+            </div>
+        </div>
+        <pre>
+            <code class="language-js">
+                // select all necessary elements 
+                const myFile= document.querySelector('#myFile');
+                const file_detail = document.querySelector('.file-detail');
+                const number_of_files = document.querySelector('#number_of_files');
+                const show_file_name = document.querySelector('#show_file_name');
+                const show_file_size = document.querySelector('#show_file_size');
+                const show_file_type = document.querySelector('#show_file_type');
+                const show_last_modified = document.querySelector('#show_last_modified');
+                file_detail.style.display='none'; 
+        
+                // Every time new file is choosed. 
+                myFile.addEventListener('change', (e) => {
+                    let myFile = e.target.files;
+        
+                    // check if a file is selected. 
+                    if(myFile.length){
+                        file = myFile[0]; 
+        
+                        let fileType = file.type.split('/'); 
+                        let uploadDate = new Date(file.lastModifiedDate); 
+                        let year = uploadDate.getFullYear(); 
+                        let month = uploadDate.getMonth(); 
+                        let day = uploadDate.getDay(); 
+                        uploadDate = day +"/"+month+"/"+year; 
+        
+                        number_of_files.textContent = myFile.length; 
+                        show_file_name.textContent = file.name; 
+                        show_file_size.textContent = file.size+'KB'; 
+                        show_file_type.textContent = fileType[1];
+                        show_last_modified.textContent = uploadDate; 
+        
+                        file_detail.style.display='block'; 
+                    }
+                })
+            </code>
+        </pre>
+
+    </main>
+
+    <script>
+
+        // select all necessary elements 
+        const myFile= document.querySelector('#myFile');
+        const file_detail = document.querySelector('.file-detail');
+        const number_of_files = document.querySelector('#number_of_files');
+        const show_file_name = document.querySelector('#show_file_name');
+        const show_file_size = document.querySelector('#show_file_size');
+        const show_file_type = document.querySelector('#show_file_type');
+        const show_last_modified = document.querySelector('#show_last_modified');
+        file_detail.style.display='none'; 
+
+        // Every time new file is choosed. 
+        myFile.addEventListener('change', (e) => {
+            let myFile = e.target.files;
+
+            // check if a file is selected. 
+            if(myFile.length){
+                file = myFile[0]; 
+
+                let fileType = file.type.split('/'); 
+                let uploadDate = new Date(file.lastModifiedDate); 
+                let year = uploadDate.getFullYear(); 
+                let month = uploadDate.getMonth(); 
+                let day = uploadDate.getDay(); 
+                uploadDate = day +"/"+month+"/"+year; 
+
+                number_of_files.textContent = myFile.length; 
+                show_file_name.textContent = file.name; 
+                show_file_size.textContent = file.size+'KB'; 
+                show_file_type.textContent = fileType[1];
+                show_last_modified.textContent = uploadDate; 
+
+                file_detail.style.display='block'; 
+            }
+        })
+        
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</body>
+</html>
